@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Happy Monthsary 💜</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500&display=swap');
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #E6E6FA, #d8c7f5);
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    .overlay-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2rem;
+      color: #fff;
+      margin: 1rem 0;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      animation: fadeInDown 2s ease-in-out;
+    }
+
+    .video-wrapper {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+      animation: fadeIn 3s ease-in-out;
+      width: 90vw;
+      max-width: 420px; /* Portrait friendly */
+      background: #000;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 20px 20px 0 0;
+    }
+
+    /* Custom video controls */
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.6rem;
+      background: rgba(255,255,255,0.9);
+      border-radius: 0 0 20px 20px;
+    }
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .buttons button {
+      background: #6b4fa3;
+      border: none;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+    .buttons button:hover {
+      background: #563b85;
+    }
+    .progress, .volume {
+      width: 90%;
+      margin: 0.3rem 0;
+    }
+
+    .message {
+      margin-top: 1.2rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #3b2a55;
+      padding: 0 1rem;
+      animation: fadeInUp 3s ease-in-out;
+    }
+
+    .date {
+      margin-top: 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #5a3f87;
+      animation: pulse 3s infinite;
+    }
+
+    .footer {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #4b306e;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* Animations */
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.95);} to { opacity: 1; transform: scale(1);} }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px);} to { opacity: 1; transform: translateY(0);} }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px);} to { opacity: 1; transform: translateY(0);} }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+
+    /* Floating hearts */
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .hearts span {
+      position: absolute;
+      display: block;
+      color: rgba(255, 192, 203, 0.7);
+      font-size: 1.5rem;
+      animation: floatHearts 10s linear infinite;
+    }
+    @keyframes floatHearts {
+      0% { transform: translateY(100vh) scale(0.8); opacity: 0;}
+      50% { opacity: 1;}
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating Hearts -->
+  <div class="hearts">
+    <span style="left: 10%; animation-delay: 0s;">💜</span>
+    <span style="left: 30%; animation-delay: 2s;">💖</span>
+    <span style="left: 50%; animation-delay: 4s;">💘</span>
+    <span style="left: 70%; animation-delay: 6s;">💕</span>
+    <span style="left: 85%; animation-delay: 8s;">💜</span>
+  </div>
+
+  <!-- Title -->
+  <div class="overlay-title">Happy Monthsary, My Dearest</div>
+
+  <!-- Video -->
+  <div class="video-wrapper">
+    <video id="monthsaryVideo">
+      <source src="Vid1.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+    <!-- Custom Controls -->
+    <div class="controls">
+      <div class="buttons">
+        <button id="playPause">▶ Play</button>
+        <button id="muteUnmute">🔇 Mute</button>
+      </div>
+      <input type="range" id="progress" class="progress" value="0" min="0" step="0.1">
+      <input type="range" id="volume" class="volume" min="0" max="1" step="0.05" value="1">
+    </div>
+  </div>
+
+  <!-- Sweet Message -->
+  <div class="message">
+    “On this fair day, the ninth of September, mine heart singeth with joy.  
+    For every fleeting hour spent with thee is as a thousand blossoms unfurling  
+    beneath heaven’s tender gaze. Thou art my sweetest solace, my fairest muse,  
+    and the very light that guideth mine every dawn.  
+    Blessed am I, that fate hath bound my soul to thine,  
+    in love eternal and ever true.”
+  </div>
+
+  <!-- Date -->
+  <div class="date">💜 9 • 9 💜</div>
+
+  <!-- Footer -->
+  <div class="footer">Forever Thine, Your one and only employee</div>
+
+  <script>
+    const video = document.getElementById("monthsaryVideo");
+    const playPauseBtn = document.getElementById("playPause");
+    const muteUnmuteBtn = document.getElementById("muteUnmute");
+    const progress = document.getElementById("progress");
+    const volume = document.getElementById("volume");
+
+    // Play / Pause
+    playPauseBtn.addEventListener("click", () => {
+      if (video.paused) {
+        video.play();
+        playPauseBtn.textContent = "⏸ Pause";
+      } else {
+        video.pause();
+        playPauseBtn.textContent = "▶ Play";
+      }
+    });
+
+    // Mute / Unmute
+    muteUnmuteBtn.addEventListener("click", () => {
+      video.muted = !video.muted;
+      muteUnmuteBtn.textContent = video.muted ? "🔊 Unmute" : "🔇 Mute";
+    });
+
+    // Update progress bar
+    video.addEventListener("timeupdate", () => {
+      progress.max = video.duration;
+      progress.value = video.currentTime;
+    });
+
+    // Seek video
+    progress.addEventListener("input", () => {
+      video.currentTime = progress.value;
+    });
+
+    // Volume control
+    volume.addEventListener("input", () => {
+      video.volume = volume.value;
+    });
+  </script>
+</body>
+</html>
